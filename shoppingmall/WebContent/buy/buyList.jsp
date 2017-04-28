@@ -18,7 +18,7 @@
 <link href="/shoppingmall/css/style.css" rel="stylesheet"
 	type="text/css">
 <script src="http://code.jquery.com/jquery-latest.js"></script>
-<script src="/shoppingmall/buy/buyList.js"></script>
+<script src="buyList.js"></script>
 </head>
 <body>
 	<c:if test="${empty sessionScope.id}">
