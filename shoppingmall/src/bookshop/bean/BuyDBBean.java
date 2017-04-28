@@ -12,8 +12,6 @@ import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.sql.DataSource;
 
-import sun.util.resources.cldr.fr.CalendarData_fr_TD;
-
 public class BuyDBBean {
 
 	// page 950~
