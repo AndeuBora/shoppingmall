@@ -19,7 +19,7 @@
 <script src="/shoppingmall/mngr/productProcess/booklist.js"></script>
 </head>
 <body>
-	<c:if test=""${empty sessionScope.id}">
+	<c:if test="${empty sessionScope.id}">
 		<meta http-equiv="Refresh"
 			content="0;url=/shoppingmall/mg/managerMain.do">
 	</c:if>
