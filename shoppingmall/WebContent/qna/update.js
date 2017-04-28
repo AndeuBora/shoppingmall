@@ -1,3 +1,6 @@
+
+/* 승환 : 918 페이지 */
+
 $(document)
 		.ready(
 				function() {
