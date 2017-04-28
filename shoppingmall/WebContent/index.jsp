@@ -8,7 +8,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Insert title here</title>
-<link href="css/style.css" rel="stylesheet" type="text/css">
+<link href="/shoppingmall/css/style.css" rel="stylesheet" type="text/css">
 </head>
 <body>
 	<div id="header">
@@ -20,7 +20,9 @@
 			<c:if test="${type == 0}">
 				<jsp:include page="mngr/logon/mLoginForm.jsp" />
 			</c:if>
+			<c:if test="${type == 1}">
 			<jsp:include page="member/loginForm.jsp" />
+			</c:if>
 		</div>
 	</div>
 	<div id="content" class="box2">

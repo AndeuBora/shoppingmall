@@ -11,7 +11,7 @@ $(document).ready(function() {
 			passwd : $("#cpasswd").val()
 		};
 
-		a.ajax({
+		$.ajax({
 			type : "post",
 			url : "/shoppingmall/loginPro.do",
 			data : query,

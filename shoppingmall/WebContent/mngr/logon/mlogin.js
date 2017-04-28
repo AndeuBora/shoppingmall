@@ -2,6 +2,7 @@
 $(function() {
 	// [로그인] 버튼클릭시
 	$("#login").click(function() {
+		alert("로그인버튼클릭");
 		var query = {
 			id : $("#id").val(),
 			passwd : $("#passwd").val()

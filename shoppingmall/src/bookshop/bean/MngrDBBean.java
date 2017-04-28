@@ -14,6 +14,7 @@ import javax.sql.DataSource;
 import work.crypt.BCrypt;
 import work.crypt.SHA256;
 
+
 public class MngrDBBean {
 	// dao --보라
 	// 전역객체 (한 객체만 생성해서 공유)

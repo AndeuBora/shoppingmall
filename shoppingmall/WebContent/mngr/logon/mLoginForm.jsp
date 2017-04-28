@@ -8,7 +8,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <link rel="stylesheet" href="/shoppingmall/css/style.css">
 <script src="http://code.jquery.com/jquery-latest.js"></script>
-<script type="text/javascript" src="mlogin.js"></script>
+<script type="text/javascript" src="/shoppingmall/mngr/logon/mlogin.js"></script>
 <title>Insert title here</title>
 </head>
 <body>

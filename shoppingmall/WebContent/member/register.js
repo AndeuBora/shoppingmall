@@ -2,7 +2,7 @@
 /* 승환 : 890 페이지 */
 
 $(document).ready(function() {
-	$("#checkId").check(function() { // [ID중복확인] 버튼 클릭
+	$("#checkId").click(function() { // [ID중복확인] 버튼 클릭
 		if ($("#id").val()) {
 			var query = {
 				id : $("#id").val()
@@ -40,12 +40,12 @@ $(document).ready(function() {
 			tel : $("#tel").val()
 		};
 
-		a.ajax({
+		$.ajax({
 			type : "post",
 			url : "/shoppingmall/registerPro.do",
 			data : query,
 			success : function(data) {
-				window.location.href("/shoppingmall/index.do");
+				window.location.href="/shoppingmall/index.do";
 			}
 		});
 	});
