@@ -8,12 +8,15 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import bookshop.bean.BuyDBBean;
+import bookshop.bean.BuyDataBean;
+
 public class OrderListAction implements CommandAction {
 
 	@Override
 	public String requestPro(HttpServletRequest request, HttpServletResponse response) throws Throwable {
 
-		List<BuyDataBean> buyList = null;
+		List<BuyDataBean> buyLists = null;
 		
 		int count = 0;
 		
