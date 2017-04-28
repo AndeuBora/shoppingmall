@@ -29,6 +29,12 @@
 		<ul>
 			<li><p>[${book_title}] 의QnA</p>
 				<p>QnA내용:${qna_cotnent}</p>
+			<li><label for="rContent">답변</label> <textarea id="rContent"
+					rows="13" cols="50"></textarea></li>
+			<li class="label2">
+				<button id="replyPro">답변하기</button>
+				<button id="cnacle">취소</button>
+			</li>
 		</ul>
 
 
