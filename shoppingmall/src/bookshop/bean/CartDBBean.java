@@ -12,8 +12,8 @@ import javax.naming.InitialContext;
 import javax.sql.DataSource;
 
 public class CartDBBean {
-	//사용자 영역 장바구니 관련 DBBEAN
-	//926page~
+	// 사용자 영역 장바구니 관련 DBBEAN
+	// 926page~
 	private static CartDBBean instance = new CartDBBean();
 
 	public static CartDBBean getInstance() {
@@ -39,7 +39,8 @@ public class CartDBBean {
 
 		try {
 			conn = getConnection();
-			sql = "insert into cart(book_id,buyer,book_title," + "buy_price,buy_count,book_image)values(?,?,?,?,?,?)";
+			sql = "insert into cart(cart_id,book_id, buyer,book_title,"
+					+ " buy_price,buy_count,book_image)values(cart_seq.nextval,?,?,?,?,?,?)";
 			pstmt = conn.prepareStatement(sql);
 
 			pstmt.setInt(1, cart.getBook_id());
@@ -133,7 +134,7 @@ public class CartDBBean {
 
 			pstmt.setString(1, id);
 			rs = pstmt.executeQuery();
-
+			System.out.println("-----------dao.id=" + id);
 			lists = new ArrayList<CartDataBean>(count);
 
 			while (rs.next()) {

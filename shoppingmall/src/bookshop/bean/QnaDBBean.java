@@ -1,3 +1,5 @@
+/*일현 787*/
+
 package bookshop.bean;
 
 import java.sql.Connection;
@@ -110,7 +112,7 @@ public class QnaDBBean {
 
 			// 쿼리를 작성: board테이블에 새로운 레코드 추가
 			sql = "insert into qna(qna_id,book_id,book_title,qna_writer, qna_content,";
-			sql += "group_id,qora,rely,reg_date) values(qna_sequence.nextval,?,?,?,?,?,?,?,?)";
+			sql += "group_id,qora,reply,reg_date) values(qna_sequence.nextval,?,?,?,?,?,?,?,?)";
 
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setInt(1, article.getBook_id());
@@ -247,7 +249,7 @@ public class QnaDBBean {
 		try {
 			conn = getConnection();
 
-			pstmt = conn.prepareStatement("select from qna order by group_id desc, qora asc");
+			pstmt = conn.prepareStatement("select * from qna order by group_id desc, qora asc");
 
 			rs = pstmt.executeQuery();
 
@@ -264,7 +266,11 @@ public class QnaDBBean {
 					article.setQora(rs.getInt("qora"));
 					article.setReply(rs.getInt("reply"));
 					article.setReg_date(rs.getTimestamp("reg_date"));
-					// List 객체에 데이터
+					
+					// List 객체에 데이터추가
+					articleList.add(article);
+					System.out.println("qnaid= "+article.getQna_id());
+					System.out.println("!!!!!!!!!!!!!!qora"+article.getQora());
 				} while (rs.next());
 
 			}
@@ -450,7 +456,6 @@ public class QnaDBBean {
 	}
 
 	// QnA 글 수정 삭제 처리 시 사용
-
 	public int deleteArticle(int qna_id) {
 		Connection conn = null;
 		PreparedStatement pstmt = null;

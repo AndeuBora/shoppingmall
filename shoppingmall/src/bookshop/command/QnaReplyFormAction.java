@@ -13,6 +13,7 @@ public class QnaReplyFormAction implements CommandAction {
 	@Override
 	public String requestPro(HttpServletRequest request, HttpServletResponse response) throws Throwable {
      int qna_id = Integer.parseInt(request.getParameter("qna_id"));
+     System.out.println("qna_id=================="+qna_id);
      
      //qna_id에 해당하는 QnA를 가져옴
      QnaDBBean qnaProcess= QnaDBBean.getInstance();
@@ -20,11 +21,13 @@ public class QnaReplyFormAction implements CommandAction {
 		
      //QnA 답변에 필요한 정보를 얻어냄
       int book_id = qna.getBook_id();
+      System.out.println("!!!!!!!!!!!!!!!!!book_id="+book_id);
       String book_title=qna.getBook_title();
       String qna_content =qna.getQna_content();
       byte qora= 2;//답변글
       
       request.setAttribute("qna_id", new Integer(qna_id));
+      System.out.println("!!!!!!!!!!!!!!!!!qna_id="+qna_id);
       request.setAttribute("book_id", new Integer(book_id));
       request.setAttribute("book_title", book_title);
       request.setAttribute("qna_content", qna_content);

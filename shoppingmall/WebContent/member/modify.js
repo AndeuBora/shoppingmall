@@ -4,11 +4,14 @@ $(document).ready(function() {
 	$("#modifyProcess").click(function() { // [수정] 버튼 클릭
 		var query = {
 			id : $("#id").val(),
-			paswwd : $("#passwd").val(),
+			passwd : $("#passwd").val(),
 			name : $("#name").val(),
 			address : $("#address").val(),
 			tel : $("#tel").val()
+			
 		};
+		
+		alert($("#passwd").val());
 
 		$.ajax({
 			type : "post",

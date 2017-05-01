@@ -22,10 +22,11 @@ public class ModifyProAction implements CommandAction {
 		member.setName(request.getParameter("name"));
 		member.setAddress(request.getParameter("address"));
 		member.setTel(request.getParameter("tel"));
-
+		System.out.println("memberpasswd!!!!!!=" + request.getParameter("passwd"));
 		// 수정할 회원 정보를 가지고 수정 처리 후 성공 여부 반환
 		LogonDBBean manager = LogonDBBean.getInstance();
 		int check = manager.updateMember(member);
+		System.out.println("check" + check);
 
 		request.setAttribute("check", new Integer(check));
 		return "/member/modifyPro.jsp";

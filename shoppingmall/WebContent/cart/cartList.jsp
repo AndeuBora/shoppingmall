@@ -1,3 +1,5 @@
+<!-- 태준 937 -->
+
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
@@ -51,10 +53,10 @@
 				<c:set var="total" value="0"></c:set>
 
 				<!--items 해당 구매자의 레코드 값 -->
-				<c:forEach var="chart" items="${cartLists}">
+				<c:forEach var="cart" items="${cartLists}">
 					<tr>
 						<td width="300"><img
-							src="/shoppingmall/bookImages/${cart.getBook_image()}"
+							src="/shoppingmall/bookImage/${cart.getBook_image()}"
 							class="cartimage"> ${cart.getBook_title()}</td>
 						<td width="100"><fmt:formatNumber
 								value="${cart.getBuy_price()}" type="number" pattern="#,##0"></fmt:formatNumber>
@@ -62,8 +64,8 @@
 						<td width="150"><input type="text" name="buy_count" size="5"
 							value="${cart.getBuy_count()}">
 							<button id="updateSu"
-								name="${cart.getCart_id(),${cart.getBuy_count()}"
-								onclick="editSu(this)"></button> 수정</td>
+								name="${cart.getCart_id()},${cart.getBuy_count()}"
+								onclick="editSu(this)">수정</button> </td>
 						<td align="center" width="150"><c:set var="amount"
 								value="${cart.getBuy_count()*cart.getBuy_price()}"></c:set> <c:set
 								var="total" value="${total+amount}"></c:set> <fmt:formatNumber

@@ -4,7 +4,7 @@ import java.sql.Timestamp;
 
 public class BuyDataBean {
 	// page946~
-	private Integer buy_id;// 구매 아이디
+	private Long buy_id;// 구매 아이디
 	private String buyer;// 구매자
 	private int book_id;// 구매된 책 아이디
 	private String book_title;// 구매된 책명
@@ -18,11 +18,12 @@ public class BuyDataBean {
 	private String deliveryAddress;// 배송지 주소
 	private String sanction;// 배송상황
 
-	public Integer getBuy_id() {
+	
+	public Long getBuy_id() {
 		return buy_id;
 	}
 
-	public void setBuy_id(Integer buy_id) {
+	public void setBuy_id(Long buy_id) {
 		this.buy_id = buy_id;
 	}
 

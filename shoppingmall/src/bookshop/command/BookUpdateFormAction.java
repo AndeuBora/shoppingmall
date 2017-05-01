@@ -24,7 +24,10 @@ public class BookUpdateFormAction implements CommandAction {
 		request.setAttribute("book_kind", book_kind);
 		request.setAttribute("book", book);
 		request.setAttribute("type", new Integer(0));
+		
+		System.out.println("book_kind"+book_kind);
 		return "/mngr/productProcess/bookUpdateForm.jsp";
+		
 	}
 
 }

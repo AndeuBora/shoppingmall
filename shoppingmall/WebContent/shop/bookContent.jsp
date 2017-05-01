@@ -17,7 +17,7 @@
 <title>Insert title here</title>
 <link href="/shoppingmall/css/style.css" rel="stylesheet" type="text/css">
 <script src="http://code.jquery.com/jquery-latest.js"></script>
-<script src="/shoppingmall/shop/bookcontent.js"></script>
+<script src="/shoppingmall/shop/bookContent.js"></script>
 </head>
 <body>
 	<div id="cata" class="box2">

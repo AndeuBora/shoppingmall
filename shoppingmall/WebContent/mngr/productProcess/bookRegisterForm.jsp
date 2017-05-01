@@ -11,7 +11,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <link rel="stylesheet" href="/shoppingmall/css/style.css">
 <script src="http://code.jquery.com/jquery-latest.js"></script>
-<script type="text/javascript" src="bookregist.js"></script>
+<script type="text/javascript"
+	src="/shoppingmall/mngr/productProcess/bookregist.js"></script>
+<script src="http://malsup.github.com/jquery.form.js"></script>
 <title>Insert title here</title>
 </head>
 <body>
@@ -25,7 +27,7 @@
 		<button id="bookList">목록으로</button>
 	</div>
 
-	<form id="upform1" action="/shoppingmall/mg/bookRegisterPro.do"
+	<form id="upform" action="/shoppingmall/mg/bookRegisterPro.do"
 		method="post" enctype="multipart/form-data">
 		<div id="bookRegistForm" class="box">
 			<ul>

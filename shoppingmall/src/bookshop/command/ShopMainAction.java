@@ -22,7 +22,7 @@ public class ShopMainAction implements CommandAction {
 
 		// 카테고리별 최신의 상품 3개씩 얻어내서 List에 저장
 		for (int i = 1; i <= 3; i++) {
-			bookList = bookProcess.getBooks(i + "00", 3);
+			bookList = bookProcess.getBookss(i+"00");
 			bookLists.add(bookList);
 		}
 

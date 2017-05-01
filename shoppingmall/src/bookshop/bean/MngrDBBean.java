@@ -14,7 +14,6 @@ import javax.sql.DataSource;
 import work.crypt.BCrypt;
 import work.crypt.SHA256;
 
-
 public class MngrDBBean {
 	// dao --보라
 	// 전역객체 (한 객체만 생성해서 공유)
@@ -313,7 +312,7 @@ public class MngrDBBean {
 	}
 
 	// 쇼핑몰 메인에 표시하기위해 사용하는 분류별 신간책 목록 (top)
-	public MngrDataBean[] getBooks(String book_kind, int top) throws Exception {
+	public MngrDataBean[] getBookss(String book_kind) throws Exception {
 		Connection con = null;
 		PreparedStatement ps = null;
 		ResultSet rs = null;
@@ -322,15 +321,12 @@ public class MngrDBBean {
 
 		try {
 			con = getConnection();
-			ps = con.prepareStatement(
-					"select book_id, book_kind, book_title, book_price, book_count, author,publishing_com,publishing_date,book_image,discount_rate"
-							+ "reg_date,rownum from (select * from book where book_kind=? order by reg_date desc) where rownum <= ?");
+			ps = con.prepareStatement("select * from book where book_kind=? order by reg_date desc");
 			ps.setString(1, book_kind);
-			ps.setInt(2, top); // top까지만 검색
 			rs = ps.executeQuery();
 
 			if (rs.next()) {
-				list = new MngrDataBean[top];
+				list = new MngrDataBean[3];
 				do {
 					// 내용빼고 다받아옴
 					MngrDataBean dto = new MngrDataBean();
@@ -343,8 +339,8 @@ public class MngrDBBean {
 					dto.setPublishing_com(rs.getString(7));
 					dto.setPublishing_date(rs.getString(8));
 					dto.setBook_image(rs.getString(9));
-					dto.setDiscount_rate(rs.getInt(10));
-					dto.setReg_date(rs.getTimestamp(11));
+					dto.setDiscount_rate(rs.getInt(11));
+					dto.setReg_date(rs.getTimestamp(12));
 					list[i] = dto;
 					i++;
 				} while (rs.next());

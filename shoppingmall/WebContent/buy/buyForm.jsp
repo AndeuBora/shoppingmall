@@ -1,3 +1,4 @@
+<!-- 태준 962 -->
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
@@ -50,7 +51,7 @@
 		</table>
 	</div>
 	<div id="buyArea">
-		<form action="/shoppingmall/buyPro.do" method="post" name="buyForm">
+		<form action="/shoppingmall/buyPro.do" method="post" name="buyForm" id="buyForm">
 			<table>
 				<tr>
 					<td colspan="2"><font size="+1"><b>주문자 정보</b></font></td>
@@ -69,7 +70,7 @@
 				</tr>
 				<tr>
 					<td width="200" align="left">결제계좌</td>
-					<td width="400" align="left"><select>
+					<td width="400" align="left"><select name="account">
 							<c:forEach var="accountList" items="${accountLists}">
 								<option value="${accountList}">${accountList}</option>
 							</c:forEach>
@@ -96,7 +97,7 @@
 				</tr>
 				<tr>
 					<td width="200" align="left">주소</td>
-					<td><input type="text" name="deliveryAddress"
+					<td><input type="text" name="deliveryAddress" id="deliveryAddress"
 						value="${memeber.getAddress()}"> <input type="hidden"
 						name="buyer" value="${sessionScope.id}"></td>
 				</tr>

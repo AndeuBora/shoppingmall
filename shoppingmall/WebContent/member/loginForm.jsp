@@ -37,7 +37,7 @@
 					<div id="info">
 						<table>
 							<tr height="10">
-								<td><button id="uLogoout">로그아웃</button></td>
+								<td><button id="uLogout">로그아웃</button></td>
 								<td><button id="uUpdate">회원 정보 변경</button></td>
 								<td><form id="cartForm" method="post"
 										action="/shoppingmall/cartList.do">

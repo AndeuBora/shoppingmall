@@ -14,7 +14,7 @@ import javax.sql.DataSource;
 
 public class BuyDBBean {
 
-	// page 950~
+	// 태준 page 950~
 	private static BuyDBBean instance = new BuyDBBean();
 
 	public static BuyDBBean getInstance() {
@@ -85,36 +85,36 @@ public class BuyDBBean {
 		String number = "";
 		String todayDate = "";
 		String compareDate = "";
-		int buyId = 0;
+		long buyId = 0;
 		int nowCount;
 
 		try {
 			conn = getConnection();
 			reg_date = new Timestamp(System.currentTimeMillis());
 			todayDate = reg_date.toString();
-			compareDate = todayDate.substring(0, 4) + todayDate.substring(5, 7) + todayDate.substring(8, 0);
+			compareDate = todayDate.substring(0, 4) + todayDate.substring(5, 7) + todayDate.substring(8, 10);
 
 			pstmt = conn.prepareStatement("select max(buy_id) from buy");
 			rs = pstmt.executeQuery();
 			rs.next();
-			if (rs.getInt(1) > 0) {
-				Integer val = new Integer(rs.getInt(1));
+			if (rs.getLong(1) > 0) {
+			    Long val = new Long(rs.getLong(1));
 				maxDate = val.toString().substring(0, 8);
 				number = val.toString().substring(8);
 				if (compareDate.equals(maxDate)) {
 					if ((Integer.parseInt(number) + 1) < 10000) {
-						buyId = Integer.parseInt(maxDate) + (Integer.parseInt(number) + 1 + 10000);
+						buyId = Long.parseLong(maxDate + (Integer.parseInt(number) + 1 + 10000));
 					} else {
-						buyId = Integer.parseInt(maxDate + (Integer.parseInt(number) + 1));
+						buyId = Long.parseLong(maxDate + (Integer.parseInt(number) + 1));
 					}
 				} else {
 					compareDate += "00001";
-					buyId = Integer.parseInt(compareDate);
+					buyId = Long.parseLong(compareDate);
 				}
 
 			} else {
 				compareDate += "00001";
-				buyId = Integer.parseInt(compareDate);
+				buyId = Long.parseLong(compareDate);
 			}
 			// 105~154라인까지 하나의 트랜잭션으로 처리
 			conn.setAutoCommit(false);
@@ -127,7 +127,7 @@ public class BuyDBBean {
 				sql += "values(?,?,?,?,?,?,?,?,?,?,?,?)";
 				pstmt = conn.prepareStatement(sql);
 
-				pstmt.setInt(1, buyId);
+				pstmt.setLong(1, buyId);
 				pstmt.setString(2, id);
 				pstmt.setInt(3, cart.getBook_id());
 				pstmt.setString(4, cart.getBook_title());
@@ -298,9 +298,9 @@ public class BuyDBBean {
 			while (rs.next()) {
 				buy = new BuyDataBean();
 
-				buy.setBuy_id(rs.getInt("buy_id"));
+				buy.setBuy_id(rs.getLong("buy_id"));
 				buy.setBook_id(rs.getInt("book_id"));
-				buy.setBook_title(rs.getString("bood_title"));
+				buy.setBook_title(rs.getString("book_title"));
 				buy.setBuy_price(rs.getInt("buy_price"));
 				buy.setBuy_count(rs.getInt("buy_count"));
 				buy.setBook_image(rs.getString("book_image"));
@@ -354,7 +354,7 @@ public class BuyDBBean {
 			while (rs.next()) {
 				buy = new BuyDataBean();
 
-				buy.setBuy_id(rs.getInt("buy_id"));
+				buy.setBuy_id(rs.getLong("buy_id"));
 				buy.setBuyer(rs.getString("buyer"));
 				buy.setBook_id(rs.getInt("book_id"));
 				buy.setBook_title(rs.getString("book_title"));

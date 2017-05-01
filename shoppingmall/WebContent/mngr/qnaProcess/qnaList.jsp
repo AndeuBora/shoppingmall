@@ -18,15 +18,16 @@
 <div id="qnaHeader">
 	<button id="bookMain">관리자 메인으로</button>
 </div>
+
 <c:if test="${count==0}">
 	<p>등록된 Qna가 없습니다.
 </c:if>
 
+<p>count = ${count } </p>
+
 <c:if test="${count>0}">
-	<div id="anaList">
-
-		<c:forEach var="qna" items="${qnaList}">
-
+	<div id="qnaList">
+		<c:forEach var="qna" items="${qnaLists}">
 			<ul>
 				<c:if test="${qna.getQora()==1 }">
 					<li><p>[${qna.getBook_title()}] 상품에 대한 QnA</p>
@@ -35,7 +36,7 @@
 						</p>
 						<p>${qna.getQna_content()}</p>
 				</c:if>
-				<c:if test="${na.getReply()==0 }">
+				<c:if test="${qna.getReply()==0 }">
 					<p>
 						<button id="reply" name="${qna.getQna_id()}" onclick="reply(this)">답변하기
 						</button>
@@ -49,7 +50,7 @@
 							<small class="date">(${qna.getReg_date()})</small>
 						</p>
 						<p>
-							<button id="ediReply" name="${qna.getQna_id }"
+							<button id="editReply" name="${qna.getQna_id() }"
 								onclick="edit(this)">수정</button>
 						</p>
 				</c:if>

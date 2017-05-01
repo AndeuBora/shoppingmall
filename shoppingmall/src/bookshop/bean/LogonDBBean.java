@@ -93,17 +93,22 @@ public class LogonDBBean {
 			String shaPass = sha.getSha256(orgPass.getBytes());
 
 			pstmt = conn.prepareStatement("select passwd from member where id=?");
+			System.out.println("id=" + id);
+			System.out.println("pw=" + passwd);
 			pstmt.setString(1, id);
 			rs = pstmt.executeQuery();
 
 			if (rs.next()) { // 해당 아이디가 있으면 수행
 				String dbpasswd = rs.getString("passwd");
-				if (BCrypt.checkpw(shaPass, dbpasswd))
+				if (BCrypt.checkpw(shaPass, dbpasswd)) {
+					System.out.println("dbpass=" + dbpasswd);
 					x = 1; // 인증 성공
-				else
+				} else {
 					x = 0; // 비밀번호 틀림
+				}
 			} else // 해당 아이디가 없으면 수행
 				x = -1; // 아이디 없음
+			System.out.println("x=" + x);
 		} catch (Exception ex) {
 			ex.printStackTrace();
 		} finally {
@@ -313,14 +318,15 @@ public class LogonDBBean {
 		SHA256 sha = SHA256.getInsatnce();
 		try {
 			conn = getConnection();
-
+			System.out.println("member.passwd" + member.getPasswd());
 			String orgPass = member.getPasswd();
 			String shapass = sha.getSha256(orgPass.getBytes());
 
 			pstmt = conn.prepareStatement("select passwd from member where id=?");
 			pstmt.setString(1, member.getId());
+			System.out.println("member.getId()=" + member.getId());
 			rs = pstmt.executeQuery();
-
+			System.out.println("-------------------rs.next" + rs.next());
 			if (rs.next()) { // 해당 아이디가 있으면 수행
 				String dbpasswd = rs.getString("passwd");
 				if (BCrypt.checkpw(shapass, dbpasswd)) {
@@ -331,10 +337,14 @@ public class LogonDBBean {
 					pstmt.setString(4, member.getId());
 					pstmt.executeUpdate();
 					x = 1; // 회원 정보 수정 처리 성공
-				} else
+					System.out.println("처리수행성공");
+				} else {
 					x = 0; // 회원 정보 수정 처리 실패
+					System.out.println("처리수행실패");
+				}
 			}
 		} catch (Exception ex) {
+			System.err.println("에러페이지=" + ex.toString());
 			ex.printStackTrace();
 		} finally {
 			if (rs != null) {

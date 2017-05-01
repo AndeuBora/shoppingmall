@@ -31,7 +31,6 @@ public class CartListAction implements CommandAction {
 		
 		//객체로 저장가능 하기때문에 integer로 객체화
 		request.setAttribute("count", new Integer(count));
-		
 		request.setAttribute("type", new Integer(1));
 		
 		return "/cart/cartList.jsp";

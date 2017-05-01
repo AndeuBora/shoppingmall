@@ -24,7 +24,7 @@ public class InsertCartAction implements CommandAction {
 		CartDataBean cart = new CartDataBean();
 		cart.setBook_id(book_id);
 		cart.setBook_image(book_image);
-		cart.setBook_image(book_title);
+		cart.setBook_title(book_title);
 		cart.setBuy_count(buy_count);
 		cart.setBuy_price(buy_price);
 		cart.setBuyer(buyer);

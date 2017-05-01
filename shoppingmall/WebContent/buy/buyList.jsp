@@ -18,7 +18,7 @@
 <link href="/shoppingmall/css/style.css" rel="stylesheet"
 	type="text/css">
 <script src="http://code.jquery.com/jquery-latest.js"></script>
-<script src="buyList.js"></script>
+<script src="/shoppingmall/buy/buyList.js"></script>
 </head>
 <body>
 	<c:if test="${empty sessionScope.id}">
@@ -38,11 +38,14 @@
 
 		<c:if test="${count > 0}">
 			<c:set var="total" value="0" />
-			<c:forEach var="i" begin="0" end="${buyLists.size() - 1}">
+			<c:forEach var="i" begin="0" end="${buyLists.size()-1}">
 				<c:set var="buylist" value="${buyLists.get(i)}" />
 				<c:set var="pid" value="${buylist.getBuy_id()}" />
 				<c:if test="${i+1 > buyLists.size() - 1}">
 					<c:set var="nid" value="0" />
+				</c:if>
+				<c:if test="${i+1 <= buyLists.size()-1}">
+					<c:set var="nid" value="${buyLists.get(i+1).getBuy_id()}" />
 				</c:if>
 				<table>
 					<tr>

@@ -8,23 +8,22 @@ $(function() {
 			passwd : $("#passwd").val()
 		};
 		$.ajax({
-			type:"post",
-			url:"/shoppingmall/mg/managerLoginPro.do",
-			data:query,
-			success:function(data){
-				window.location.href="/shoppingmall/mg/managerMain.do";
+			type : "post",
+			url : "/shoppingmall/mg/managerLoginPro.do",
+			data : query,
+			success : function(data) {
+				window.location.href = "/shoppingmall/mg/managerMain.do";
 			}
 		});
 	});
-	
+
 	// [로그아웃] 버튼클릭시
 	$("#logout").click(function() {
 		$.ajax({
-			type:"post",
-			url:"/shoppingmall/mg/managerLogout.do",
-			data:query,
-			success:function(data){
-				window.location.href="/shoppingmall/mg/managerMain.do";
+			type : "post",
+			url : "/shoppingmall/mg/managerLogout.do",
+			success : function(data) {
+				window.location.href = "/shoppingmall/mg/managerMain.do";
 			}
 		});
 	});

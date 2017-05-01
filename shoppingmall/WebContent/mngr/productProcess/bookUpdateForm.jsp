@@ -17,6 +17,7 @@
 	type="text/css">
 <script src="http://code.jquery.com/jquery-latest.js"></script>
 <script src="/shoppingmall/mngr/productProcess/bookupdate.js"></script>
+<script src="http://malsup.github.com/jquery.form.js"></script>
 </head>
 <body>
 	<c:if test="${empty sessionScope.id}">

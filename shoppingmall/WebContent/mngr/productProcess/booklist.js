@@ -14,6 +14,7 @@ function edit(editBtn) {
 	var arr = rStr.split(",");
 	var query = "/shoppingmall/mg/bookUpdateForm.do?book_id=" + arr[0];
 	query += "&book_kind=" + arr[1];
+	alert("book_kind"+arr[1]);
 	window.location.href=query;
 }
 

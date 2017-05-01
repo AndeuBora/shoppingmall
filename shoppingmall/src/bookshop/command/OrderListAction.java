@@ -34,7 +34,7 @@ public class OrderListAction implements CommandAction {
 		
 		request.setAttribute("count", new Integer(count));
 		request.setAttribute("type", new Integer(0));
-		return "/mngr/orderedProduct/orderList.jsp";
+		return "/mngr/orderedProduct/OrderList.jsp";
 	}
 
 }
